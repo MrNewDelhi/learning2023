@@ -1,40 +1,60 @@
 #include <stdio.h>
 
-struct Box {
-    double length;
-    double width;
-    double height;
+struct Complex {
+    double real;
+    double imaginary;
 };
 
-double calculateVolume(struct Box *box) {
-    return box->length * box->width * box->height;
+void readComplex(struct Complex *c) {
+    printf("Enter the real part: ");
+    scanf("%lf", &(c->real));
+
+    printf("Enter the imaginary part: ");
+    scanf("%lf", &(c->imaginary));
 }
 
-double calculateSurfaceArea(struct Box *box) {
-    return 2 * (box->length * box->width + box->length * box->height + box->width * box->height);
+void writeComplex(struct Complex c) {
+    printf("Complex number: %.2f + %.2fi\n", c.real, c.imaginary);
+}
+
+struct Complex addComplex(struct Complex c1, struct Complex c2) {
+    struct Complex result;
+    result.real = c1.real + c2.real;
+    result.imaginary = c1.imaginary + c2.imaginary;
+    return result;
+}
+
+struct Complex multiplyComplex(struct Complex c1, struct Complex c2) {
+    struct Complex result;
+    result.real = c1.real * c2.real - c1.imaginary * c2.imaginary;
+    result.imaginary = c1.real * c2.imaginary + c1.imaginary * c2.real;
+    return result;
 }
 
 int main() {
-    struct Box myBox;
-    struct Box *boxPtr = &myBox;
+    struct Complex complex1, complex2, sum, product;
 
-    // Accessing structure members using indirection operator and dot operator
-    (*boxPtr).length = 5.0;
-    (*boxPtr).width = 3.0;
-    (*boxPtr).height = 4.0;
+    printf("Enter the first complex number:\n");
+    readComplex(&complex1);
 
-    // Accessing structure members using arrow operator (->) using pointer representation
-    printf("Volume: %.2f\n", calculateVolume(boxPtr));
-    printf("Surface Area: %.2f\n", calculateSurfaceArea(boxPtr));
+    printf("Enter the second complex number:\n");
+    readComplex(&complex2);
 
-    // Accessing structure members using dot operator using dot representation
-    boxPtr->length = 6.0;
-    boxPtr->width = 4.0;
-    boxPtr->height = 2.0;
+    printf("\n");
 
-    // Accessing structure members using arrow operator (->) using dot representation
-    printf("Volume: %.2f\n", calculateVolume(boxPtr));
-    printf("Surface Area: %.2f\n", calculateSurfaceArea(boxPtr));
+    printf("First complex number:\n");
+    writeComplex(complex1);
+
+    printf("Second complex number:\n");
+    writeComplex(complex2);
+
+    sum = addComplex(complex1, complex2);
+    printf("Sum of the complex numbers:\n");
+    writeComplex(sum);
+
+    product = multiplyComplex(complex1, complex2);
+    printf("Product of the complex numbers:\n");
+    writeComplex(product);
 
     return 0;
 }
