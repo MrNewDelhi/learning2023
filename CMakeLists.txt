@@ -54,3 +54,13 @@ add_subdirectory("${PROJECT_SOURCE_DIR}/Day7/L2Q1" "${PROJECT_SOURCE_DIR}/Day7/L
 add_subdirectory("${PROJECT_SOURCE_DIR}/Day7/L2Q2" "${PROJECT_SOURCE_DIR}/Day7/L2Q2/L2Q2Output")
 add_subdirectory("${PROJECT_SOURCE_DIR}/Day7/L2Q3" "${PROJECT_SOURCE_DIR}/Day7/L2Q3/L2Q3Output")
 
+add_subdirectory("${PROJECT_SOURCE_DIR}/Day4/L1Q1" "${PROJECT_SOURCE_DIR}/Day4/L1Q1/L1Q1Output")
+add_subdirectory("${PROJECT_SOURCE_DIR}/Day4/L1Q2" "${PROJECT_SOURCE_DIR}/Day4/L1Q2/L1Q2Output")
+add_subdirectory("${PROJECT_SOURCE_DIR}/Day4/L1Q3" "${PROJECT_SOURCE_DIR}/Day4/L1Q3/L1Q3Output")
+add_subdirectory("${PROJECT_SOURCE_DIR}/Day4/L1Q4" "${PROJECT_SOURCE_DIR}/Day4/L1Q4/L1Q4Output")
+add_subdirectory("${PROJECT_SOURCE_DIR}/Day4/L1Q5" "${PROJECT_SOURCE_DIR}/Day4/L1Q5/L1Q5Output")
+add_subdirectory("${PROJECT_SOURCE_DIR}/Day4/L1Q6" "${PROJECT_SOURCE_DIR}/Day4/L1Q6/L1Q6Output")
+add_subdirectory("${PROJECT_SOURCE_DIR}/Day4/L1Q7" "${PROJECT_SOURCE_DIR}/Day4/L1Q7/L1Q7Output")
+add_subdirectory("${PROJECT_SOURCE_DIR}/Day4/L1Q8" "${PROJECT_SOURCE_DIR}/Day4/L1Q8/L1Q8Output")
+add_subdirectory("${PROJECT_SOURCE_DIR}/Day4/L1Q9" "${PROJECT_SOURCE_DIR}/Day4/L1Q9/L1Q9Output")
+add_subdirectory("${PROJECT_SOURCE_DIR}/Day4/L1Q10" "${PROJECT_SOURCE_DIR}/Day4/L1Q10/L1Q10Output")
