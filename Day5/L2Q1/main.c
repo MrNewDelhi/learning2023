@@ -1,44 +1,52 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-struct Student {
-    char name[50];
-    int rollNumber;
-    float marks;
+struct SensorInfo {
+    char sensorID[10];
+    float temperature;
+    int humidity;
+    int lightIntensity;
 };
 
-void swapFields(struct Student* student1, struct Student* student2) {
-    struct Student temp;
+void parseData(const char* data, struct SensorInfo* sensor) {
+    char* token = strtok(data, "-:");
 
-    // Swap name
-    strcpy(temp.name, student1->name);
-    strcpy(student1->name, student2->name);
-    strcpy(student2->name, temp.name);
+    while (token != NULL) {
+        if (strcmp(token, "S") == 0) {
+            token = strtok(NULL, "-:");
+            strcpy(sensor->sensorID, token);
+        } else if (strcmp(token, "T") == 0) {
+            token = strtok(NULL, "-:");
+            sensor->temperature = atof(token);
+        } else if (strcmp(token, "H") == 0) {
+            token = strtok(NULL, "-:");
+            sensor->humidity = atoi(token);
+        } else if (strcmp(token, "L") == 0) {
+            token = strtok(NULL, "-:");
+            sensor->lightIntensity = atoi(token);
+        }
 
-    // Swap roll number
-    int rollNumberTemp = student1->rollNumber;
-    student1->rollNumber = student2->rollNumber;
-    student2->rollNumber = rollNumberTemp;
+        token = strtok(NULL, "-:");
+    }
+}
 
-    // Swap marks
-    float marksTemp = student1->marks;
-    student1->marks = student2->marks;
-    student2->marks = marksTemp;
+void printSensorInfo(const struct SensorInfo* sensor) {
+    printf("Sensor Info:\n");
+    printf("---------------------\n");
+    printf("Sensor ID: %s\n", sensor->sensorID);
+    printf("Temperature: %.1f C\n", sensor->temperature);
+    printf("Humidity: %d\n", sensor->humidity);
+    printf("Light Intensity: %d%%\n", sensor->lightIntensity);
+    printf("---------------------\n");
 }
 
 int main() {
-    struct Student student1 = { "John", 1, 85.5 };
-    struct Student student2 = { "Jane", 2, 92.0 };
+    const char* data = "S1-T:36.5-H:100-L:50";
+    struct SensorInfo sensor;
 
-    printf("Before swapping:\n");
-    printf("Student 1:\nName: %s\nRoll Number: %d\nMarks: %.2f\n", student1.name, student1.rollNumber, student1.marks);
-    printf("Student 2:\nName: %s\nRoll Number: %d\nMarks: %.2f\n", student2.name, student2.rollNumber, student2.marks);
-
-    // Swap fields using pointers
-    swapFields(&student1, &student2);
-
-    printf("\nAfter swapping:\n");
-    printf("Student 1:\nName: %s\nRoll Number: %d\nMarks: %.2f\n", student1.name, student1.rollNumber, student1.marks);
-    printf("Student 2:\nName: %s\nRoll Number: %d\nMarks: %.2f\n", student2.name, student2.rollNumber, student2.marks);
+    parseData(data, &sensor);
+    printSensorInfo(&sensor);
 
     return 0;
 }
