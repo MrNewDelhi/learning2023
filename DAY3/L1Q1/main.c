@@ -1,33 +1,26 @@
 #include <stdio.h>
 
-void printDecreasing(int n) {
-    int i;
-    for (i = n; i >= 1; i--) {
-        printf("%d", i);
-    }
-}
-
-void printSpaces(int n) {
-    int i;
-    for (i = 1; i <= 2 * (n - 1); i++) {
-        printf(" ");
-    }
-}
-
-void printIncreasing(int n) {
-    int i;
-    for (i = 1; i <= n; i++) {
-        printf("%d", i);
-    }
-}
-
 void printPattern(int n) {
-    int i;
-    for (i = 1; i <= n; i++) {
-        printDecreasing(n - i + 1);
-        printSpaces(i - 1);
-        printIncreasing(n - i + 1);
+    int i, j;
+    int space = 0;
+    for (i = n; i >= 1; i--) {
+        // Print decreasing sequence
+        for (j = 1; j <= i; j++) {
+            printf("%d", j);
+        }
+
+        // Print spaces
+        for (j = 1; j <= space; j++) {
+            printf(" ");
+        }
+
+        // Print increasing sequence
+        for (j = i; j >= 1; j--) {
+            printf("%d", j);
+        }
+
         printf("\n");
+        space += 2;
     }
 }
 
