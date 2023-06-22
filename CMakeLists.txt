@@ -3,5 +3,10 @@ project(learning2023 C)
 
 set(CMAKE_C_STANDARD 23)
 
-add_subdirectory("${PROJECT_SOURCE_DIR}/Day1/l1Q1" "${PROJECT_SOURCE_DIR}/Day1/L1Q1/l1Q1Output")
+add_subdirectory("${PROJECT_SOURCE_DIR}/Day1/L1Q1" "${PROJECT_SOURCE_DIR}/Day1/L1Q1/l1Q1Output")
+add_subdirectory("${PROJECT_SOURCE_DIR}/Day1/L1Q2" "${PROJECT_SOURCE_DIR}/Day1/L1Q2/l1Q2Output")
+add_subdirectory("${PROJECT_SOURCE_DIR}/Day1/L1Q3" "${PROJECT_SOURCE_DIR}/Day1/L1Q3/l1Q3Output")
+add_subdirectory("${PROJECT_SOURCE_DIR}/Day1/L1Q4" "${PROJECT_SOURCE_DIR}/Day1/L1Q4/l1Q4Output")
+add_subdirectory("${PROJECT_SOURCE_DIR}/Day1/L1Q5" "${PROJECT_SOURCE_DIR}/Day1/L1Q5/l1Q5Output")
+add_subdirectory("${PROJECT_SOURCE_DIR}/Day1/L2Q1" "${PROJECT_SOURCE_DIR}/Day1/L2Q1/L2Q1Output")
 
